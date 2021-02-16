@@ -29,8 +29,53 @@ React works on 4 basic concepts:
 
 * For using class component syntax is:-
 
-class func_Name extends Component{......}
+class component_Name extends Component{......}
 
 * State is a javascript object with properties that we can access at any point inside of our class.
 
+* The **constructor()** in a React component is called before the component is mounted. When you implement the **constructor** for a React component, you need to call **super**(props) method before any other statement. If you do not call super(props) method, this.props will be undefined in the **constructor** and can lead to bugs.
 
+* super() helps us with this by calling React.Component's constructor()
+
+class component_Name extends Component{
+	Constructor(){
+		super();
+	this.props = {
+		......
+		}
+	}
+
+	render(){
+		.......
+	}
+}
+
+* Key help react understand it helps it know which element is the one that's been updated in the map function.
+
+* Anytime you use the map() function inside of render, or you have a list of the same jsx elements one after another, they need a key attribute (and CRA will warn you about it if you miss it)
+
+* render() method comes built in with react component
+
+####### Lifecycle Methods:-
+Essentially methods that get called at different stages of when this component gets rendered.
+
+* fetch() method returns us a promise.
+
+###### Promises:-
+
+The Promise object represents the eventual completion (or failure) of an asynchronous operation and its resulting value.
+
+> Promise.prototype.then() and Promise.prototype.catch() methods return promises
+
+> A promise object will eventually have a value. It will either be resolved value or a rejected value. The resolved value we use when our API call is successful, our rejected call we use when our API call gives us an error 
+
+A Promise is in one of these states:
+* `pending`: initial state, neither fulfilled nor rejected.
+* `fulfilled`: meaning that the operation was completed successfully.
+* `rejected`: meaning that the operation failed.
+
+> By having a reject we are able to control the separation of a successful API callback from an unsuccessful callback and this is the main benefit of using promises is because when we make an API call we don't know whether or not that will work 100 percent of the time.
+
+
+For more info:- Check out this documentation link:-
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
