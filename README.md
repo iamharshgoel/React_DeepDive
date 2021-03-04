@@ -202,4 +202,66 @@ You should not call setState() in componentWillUnmount() because the component w
 
 > Functional components are the best type of component to render if you don't need access to state or lifecycle methods! It has benefits of being easy to test, easier to read, and easier to write!
 
+> yarn add node-sass 
+This command is used to install sass into your local machine
+
+
+
+##### Routing in REACT
+
+A tool that allows you to handle routes in a web app, using dynamic routing. Dynamic routing takes place as the app is rendering on your machine, unlike the old routing architecture where the routing is handled in a configuration outside of a running app.
+
+* yarn add react-router-dom
+
+After running this command take care of babel-jest module version.
+
+import BrowseRouter from 'react-router-dom';
+
+<Router /> it will take 3 parameters inside exact, path, component
+
+exact:- is a boolean value (true or false) which tells us that this is the exact path or not
+
+path:- take the path of the components
+component:- will take the JSX component inside curly braces
+
+* Switch component :- The moment that a route inside of it finds a match in the path it does not render anything else but that route
+
+##### <Link>
+
+Provides declarative, accessible navigation around your application.
+
+to: string
+A string representation of the Link location, created by concatenating the location’s pathname, search, and hash properties.
+<Link to="/courses?sort=name" />
+
+to: object
+An object that can have any of the following properties:
+pathname: A string representing the path to link to.
+search: A string representation of query parameters.
+hash: A hash to put in the URL, e.g. #a-hash.
+state: State to persist to the location.
+<Link
+  to={{
+    pathname: "/courses",
+    search: "?sort=name",
+    hash: "#the-hash",
+    state: { fromDashboard: true }
+  }}
+/>
+
+to: function
+A function to which current location is passed as an argument and which should return location representation as a string or as an object
+
+<Link to={location => ({ ...location, pathname: "/courses" })} />
+
+* Instead of using <Link> we can use <button onClick={() => props.history.push('/topics')}> because it gives us more dynamic access then <Link>
+
+**Prop drilling**
+prop drilling is the process to get data to parts of the React Component tree, and the Context API provides a way to share values between different components, without having to explicitly pass a prop through every level.
+
+🚩 withRouter
+You can get access to the history object’s properties and the closest <Route>'s match via the withRouter higher-order component. withRouter will pass updated match, location, and history props to the wrapped component whenever it renders.
+
+export default withRouter(MyComponent);
+
 
